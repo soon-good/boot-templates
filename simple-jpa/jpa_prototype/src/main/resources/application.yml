@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: test-postgresql
+    active: h2-test
 ---
 spring:
   config:
@@ -24,3 +24,20 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+---
+spring:
+  config:
+    activate:
+      on-profile: h2-test
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/h2testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
