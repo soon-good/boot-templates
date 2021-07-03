@@ -41,3 +41,13 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
+---
+spring:
+  config:
+    activate:
+      on-profile: test-mysql
+  datasource:
+    url: jdbc:mysql://localhost:39907/codingtest
+    username: testuser
+    password: 1111
+    driver-class-name: com.mysql.cj.jdbc.Driver
