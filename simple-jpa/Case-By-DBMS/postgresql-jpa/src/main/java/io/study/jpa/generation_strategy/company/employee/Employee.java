@@ -5,12 +5,18 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+
 @Data
 @Entity
+@SequenceGenerator(
+    name = "employee_sequence",
+    schema = "public", sequenceName = "EMP_SEQ",
+    initialValue = 1, allocationSize = 1
+)
 @Table(name = "EMP", schema = "public")
 public class Employee {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_sequence")
     @Column(name = "EMPLOYEE_ID")
     private Long id;
 
