@@ -7,10 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@SequenceGenerator(
+    schema = "public", sequenceName = "DEPT_SEQ", name = "department_seq",
+    initialValue = 1, allocationSize = 1
+)
 @Table(name = "DEPT", schema = "public")
 public class Department {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_seq")
     @Column(name = "DEPT_ID")
     private Long id;
 
