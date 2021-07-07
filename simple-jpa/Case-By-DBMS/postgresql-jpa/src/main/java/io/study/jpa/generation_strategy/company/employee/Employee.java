@@ -27,4 +27,9 @@ public class Employee {
     @JoinColumn(name = "DEPT_ID")
     private Department dept;
 
+    public Employee(String name, Department dept){
+        this.name = name;
+        this.dept = dept;
+    }
+
 }
